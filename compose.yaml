@@ -1,10 +1,12 @@
 services:
   db:
     image: postgres:18
+    container_name: retreat-postgres
+    restart: unless-stopped
     environment:
+      POSTGRES_DB: retreat_app
       POSTGRES_USER: app_user
       POSTGRES_PASSWORD: app_password
-      POSTGRES_DB: sample_app
     ports:
       - "5432:5432"
     volumes:
